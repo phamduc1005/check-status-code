@@ -45,7 +45,10 @@ const CheckLastUrl = ({ name, handleReTest }) => {
                 </TableHead>
                 <TableBody>
                 {name.map((name, index) => (
-                <TableRow hover key={index} style={{...colorWarning({ name }), cursor:'pointer'}} onClick={() => { navigate(`/pingTest/${name.id}`), handleReTest({test: `${name.test}`, type: [name.onlyMain]}) }}>
+                <TableRow hover key={index} style={{...colorWarning({ name }), cursor:'pointer'}} onClick={() => { 
+                    navigate(`/pingTest/${name.id}`);
+                    handleReTest({test: `${name.test}`, type: [name.onlyMain]})
+                    }}>
                     <TableCell align="left" >{name.test}</TableCell>
                     <TableCell align="left" >{Moment(name.createdAt).format('HH:mm DD/MM/YY')}</TableCell>
                     <TableCell align="left" >{name.onlyMain?"Quick":"Full"}</TableCell>
